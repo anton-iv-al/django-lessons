@@ -5,7 +5,7 @@ from django.views import View
 from ..models import Post
 
 
-class PostView(LoginRequiredMixin, View):
+class PostsView(LoginRequiredMixin, View):
     def get(self, request):
         posts = Post.objects.order_by("-created_at").all()
         context = {"posts": posts}
