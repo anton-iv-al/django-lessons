@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User info</title>
+</head>
+<body>
+    <h1>User info</h1>
+
+    <ul>
+        <li>Username: {{ user.username }}</li>
+        <li>Email: {{ user.email }}</li>
+        <li>Is active: {{ user.is_active }}</li>
+        <li>Is staff: {{ user.is_staff }}</li>
+        <li>Is superuser: {{ user.is_superuser }}</li>
+        <li>Date joined: {{ user.date_joined }}</li>
+        <li>Last login: {{ user.last_login }}</li>
+    </ul>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ edit_user_form }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
