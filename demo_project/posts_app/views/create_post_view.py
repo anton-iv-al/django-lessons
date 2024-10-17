@@ -26,4 +26,4 @@ class CreatePostView(LoginRequiredMixin, View):
         post.username = cast(User, request.user).username
         post.save()
 
-        return redirect("posts_app:posts")
+        return redirect("posts_app:all")

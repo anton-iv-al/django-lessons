@@ -5,6 +5,6 @@ from .views.post_view import PostsView
 
 
 urlpatterns = [
-    path('posts/', PostsView.as_view(), name='posts'),
-    path('create_post/', CreatePostView.as_view(), name='create_post'),
+    path('', PostsView.as_view(), name='all'),
+    path('create/', CreatePostView.as_view(), name='create'),
 ]
