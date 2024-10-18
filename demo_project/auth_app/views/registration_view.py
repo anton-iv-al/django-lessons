@@ -1,3 +1,4 @@
+from django.contrib.auth import login
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.views import View
@@ -19,5 +20,7 @@ class RegistrationView(View):
             context = {"reg_form": form}
             return render(request, REGISTRATION_TEMPLATE, context)
 
-        form.save()
-        return redirect("/auth/login/")
+        user = form.save()
+        login(request, user)
+
+        return redirect("main_app:index")
