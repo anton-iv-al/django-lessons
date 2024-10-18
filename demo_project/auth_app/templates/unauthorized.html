@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>You are unauthorized</title>
+</head>
+<body>
+    <h1>You are unauthorized</h1>
+    <p><a href="{% url 'main_app:index' %}">Main page</a></p>
+    <p><a href="{% url 'auth_app:login' %}">Login</a></p>
+    <p><a href="{% url 'auth_app:registration' %}">Registration</a></p>
+</body>
+</html>
