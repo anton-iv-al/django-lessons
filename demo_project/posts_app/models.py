@@ -7,4 +7,4 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
     image = models.ImageField(null=True, blank=True)
-    username = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, null=True, blank=True)
