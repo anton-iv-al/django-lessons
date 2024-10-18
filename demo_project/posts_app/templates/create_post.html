@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Posts</title>
-</head>
-<body>
-    <h1>Posts</h1>
+{% extends "base.html" %}
+
+{% block header %}Create post{% endblock %}
+
+{% block content %}
+    <a href="{% url 'posts_app:all' %}">Back to all posts</a>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ create_post_form }}
         <button type="submit">Add post</button>
     </form>    
-</body>
-</html>
+{% endblock %}
+

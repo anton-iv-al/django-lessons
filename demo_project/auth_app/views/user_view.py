@@ -11,13 +11,13 @@ USER_TEMPLATE = "user.html"
 class UserView(LoginRequiredMixin, View):
     def get(self, request: HttpRequest):
         form = EditUserForm(instance=request.user)  # type: ignore
-        context = {"edit_user_form": form, "user": request.user}
+        context = {"edit_user_form": form}
         return render(request, USER_TEMPLATE, context)
 
     def post(self, request: HttpRequest):
         form = EditUserForm(request.POST, instance=request.user)  # type: ignore
         if not form.is_valid():
-            context = {"edit_user_form": form, "user": request.user}
+            context = {"edit_user_form": form}
             return render(request, USER_TEMPLATE, context)
 
         form.save()

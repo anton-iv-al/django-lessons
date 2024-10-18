@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User info</title>
-</head>
-<body>
-    <h1>User info</h1>
+{% extends "base.html" %}
 
+{% block header %}User info{% endblock %}
+
+{% block content %}
     <ul>
-        <li>Username: {{ user.username }}</li>
-        <li>Email: {{ user.email }}</li>
-        <li>Is active: {{ user.is_active }}</li>
-        <li>Is staff: {{ user.is_staff }}</li>
-        <li>Is superuser: {{ user.is_superuser }}</li>
-        <li>Date joined: {{ user.date_joined }}</li>
-        <li>Last login: {{ user.last_login }}</li>
+        <li>Username: {{ request.user.username }}</li>
+        <li>Email: {{ request.user.email }}</li>
+        <li>Is active: {{ request.user.is_active }}</li>
+        <li>Is staff: {{ request.user.is_staff }}</li>
+        <li>Is superuser: {{ request.user.is_superuser }}</li>
+        <li>Date joined: {{ request.user.date_joined }}</li>
+        <li>Last login: {{ request.user.last_login }}</li>
     </ul>
-    
+
     <form method="post">
         {% csrf_token %}
         {{ edit_user_form }}
         <button type="submit">Submit</button>
     </form>
-</body>
-</html>
+{% endblock %}
+

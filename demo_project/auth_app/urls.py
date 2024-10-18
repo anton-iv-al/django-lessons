@@ -1,5 +1,6 @@
 from django.urls import path
 
+from .views.logout_view import LogoutView
 from .views.unauthorized_view import UnathorizedView
 from .views.user_view import UserView
 from .views.registration_view import RegistrationView
@@ -9,5 +10,6 @@ urlpatterns = [
     path('unauthorized/', UnathorizedView.as_view(), name='unauthorized'),
     path('registration/', RegistrationView.as_view(), name='registration'),
     path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('user/', UserView.as_view(), name='user'),
 ]

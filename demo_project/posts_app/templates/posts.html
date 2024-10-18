@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Posts</title>
-</head>
-<body>
-    <a href="{% url 'main_app:index' %}">Home</a>
-    
-    <h1>Posts</h1>
-    <div>
-        {% for post in posts %}
-            <div class="post">
-                <h2>{{ post.title }}</h2>
-                <p>{% if post.username %}By {{ post.username }}{% endif %}</p>                
-                <p>{{ post.created_at|date:"F j, Y" }}</p>
-                {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="{{ post.title }}" width="200" height="200">
-                {% endif %}
-                <p>{{ post.text }}</p>
-            </div>
-        {% empty %}
-            <p>No posts available.</p>
-        {% endfor %}
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block header %}Posts{% endblock %}
+
+{% block content %}
+    <a href="{% url 'posts_app:create' %}">Create post</a>
+    {% for post in posts %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{% if post.username %}By {{ post.username }}{% endif %}</p>                
+            <p>{{ post.created_at|date:"F j, Y" }}</p>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" width="200" height="200">
+            {% endif %}
+            <p>{{ post.text }}</p>
+        </div>
+    {% empty %}
+        <p>No posts available.</p>
+    {% endfor %}
+{% endblock %}
+
