@@ -13,9 +13,10 @@
         <li>Last login: {{ request.user.last_login }}</li>
     </ul>
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ edit_user_form }}
+        {{ edit_profile_form }}
         <button type="submit">Submit</button>
     </form>
 {% endblock %}
