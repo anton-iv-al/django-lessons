@@ -6,5 +6,9 @@ class Post(models.Model):
 
     title = models.CharField(max_length=100)
     text = models.TextField()
-    image = models.ImageField(null=True, blank=True)
     username = models.CharField(max_length=100, null=True, blank=True)
+
+
+class PostImage(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="images")
+    image_data = models.ImageField()

@@ -9,10 +9,12 @@
             <h2>{{ post.title }}</h2>
             <p>{% if post.username %}By {{ post.username }}{% endif %}</p>                
             <p>{{ post.created_at|date:"F j, Y" }}</p>
-            {% if post.image %}
-                <img src="{{ post.image.url }}" alt="{{ post.title }}" width="200" height="200">
-            {% endif %}
+            {% for image in post.images.all %}
+                <img src="{{ image.image_data.url }}" alt="{{ post.title }}" width="200" height="200">
+            {% endfor %}
             <p>{{ post.text }}</p>
+            
+            <a href="{% url 'posts_app:edit' id=post.id %}">Edit</a>            
         </div>
     {% empty %}
         <p>No posts available.</p>

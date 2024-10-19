@@ -17,7 +17,7 @@ class CreatePostView(LoginRequiredMixin, View):
         return render(request, "create_post.html", context)
 
     def post(self, request: HttpRequest):
-        form = CreatePostForm(request.POST, request.FILES)
+        form = CreatePostForm(request.POST)
         if not form.is_valid():
             context = {"create_post_form": form}
             return render(request, "create_post.html", context)

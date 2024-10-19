@@ -7,6 +7,6 @@ from ..models import Post
 
 class PostsView(LoginRequiredMixin, View):
     def get(self, request):
-        posts = Post.objects.order_by("-created_at").all()
+        posts = Post.objects.prefetch_related("images").order_by("-created_at").all()
         context = {"posts": posts}
-        return render(request, "posts.html", context)
+        return render(request, "all_posts.html", context)

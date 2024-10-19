@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block header %}Edit post{% endblock %}
+
+{% block content %}
+    <a href="{% url 'posts_app:edit' id=post_id%}">Back to post</a>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ add_image_form }}
+        <button type="submit">Add</button>
+    </form>    
+{% endblock %}
+

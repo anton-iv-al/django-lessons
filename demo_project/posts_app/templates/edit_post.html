@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block header %}Edit post{% endblock %}
+
+{% block content %}
+    <a href="{% url 'posts_app:all' %}">Back to all posts</a>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ edit_post_form }}
+        <button type="submit">Submit</button>
+
+        <p>Images {{ edit_post_form.instance.images.count }}/{{ max_images }}</p>
+        <div>
+            {% for image in edit_post_form.instance.images.all %}
+                <img src="{{ image.image_data.url }}" alt="image" width="200" height="200">
+                <a href="{% url 'posts_app:image_delete' post_id=edit_post_form.instance.id image_id=image.id %}">Delete</a>               
+            {% endfor %}
+        </div>
+        <div>
+            {% if edit_post_form.instance.images.count < max_images %}
+                <a href="{% url 'posts_app:image_add' post_id=edit_post_form.instance.id %}">Add image to post</a>
+            {% endif %}
+        </div>
+    </form>    
+{% endblock %}
+
