@@ -10,6 +10,9 @@ REGISTRATION_TEMPLATE = "registration.html"
 
 class RegistrationView(View):
     def get(self, request: HttpRequest):
+        if request.user.is_authenticated:
+            return redirect("main_app:index")
+
         form = RegistrationForm()
         context = {"reg_form": form}
         return render(request, REGISTRATION_TEMPLATE, context)

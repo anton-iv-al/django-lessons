@@ -12,6 +12,9 @@ LOGIN_TEMPLATE = "login.html"
 
 class LoginView(View):
     def get(self, request: HttpRequest):
+        if request.user.is_authenticated:
+            return redirect("main_app:index")
+
         form = LoginForm()
         context = {"login_form": form}
         return render(request, LOGIN_TEMPLATE, context)
