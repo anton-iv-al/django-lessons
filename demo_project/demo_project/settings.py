@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main_app',
     'menu_app',
     'posts_app',
+    'post_tags_app',
     'auth_app',
 ]
 

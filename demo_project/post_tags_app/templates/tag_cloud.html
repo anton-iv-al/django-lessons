@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block header %}Tag cloud{% endblock %}
+
+{% block content %}
+    {% for tag in tags %}
+        <div>
+            <a href="{% url 'post_tags_app:tag' tag_name=tag.name %}">{{ tag.name }}: {{ tag.count }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('main_app.urls', 'main_app'), namespace='main_app')),
     path('post/', include(('posts_app.urls', 'posts_app'), namespace='posts_app')),
+    path('tag/', include(('post_tags_app.urls', 'posts_tags_app'), namespace='post_tags_app')),
     path('auth/', include(('auth_app.urls', 'auth_app'), namespace='auth_app')),
 ]
 

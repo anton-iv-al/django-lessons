@@ -9,6 +9,14 @@
             <h2>{{ post.title }}</h2>
             <p>{% if post.username %}By {{ post.username }}{% endif %}</p>                
             <p>{{ post.created_at|date:"F j, Y" }}</p>
+
+            <p>
+                Tags: 
+                {% for tag in post.tags.all %}
+                    <a href="{% url 'posts_app:all' %}?tag={{ tag.name }}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+
             {% for image in post.images.all %}
                 <img src="{{ image.image_data.url }}" alt="{{ post.title }}" width="200" height="200">
             {% endfor %}
