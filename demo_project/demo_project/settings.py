@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'drf_spectacular',
     'main_app',
     'menu_app',
     'posts_app',
@@ -139,3 +141,9 @@ LOGIN_URL = 'auth_app:unauthorized'
 
 # posts_app
 MAX_IMAGES_FOR_POST = 4
+
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
