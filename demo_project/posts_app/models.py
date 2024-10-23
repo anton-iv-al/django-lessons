@@ -1,4 +1,3 @@
-from typing import Any
 from django.db import models
 
 
@@ -8,8 +7,6 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
     username = models.CharField(max_length=100, null=True, blank=True)
-
-    tags: Any
 
 
 class PostImage(models.Model):
