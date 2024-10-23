@@ -3,12 +3,10 @@ from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.views import View
 
-from posts_app import settings as app_settings
-
-from ..models import Post
+from demo_project import settings
 
 from ..forms.edit_post_form import EditPostForm
-
+from ..models import Post
 
 EDIT_POST_TEMPLATE = "edit_post.html"
 
@@ -19,7 +17,7 @@ class EditPostView(LoginRequiredMixin, View):
         form = EditPostForm(instance=post)
         context = {
             "edit_post_form": form,
-            "max_images": app_settings.MAX_IMAGES_FOR_POST,
+            "max_images": settings.MAX_IMAGES_FOR_POST,
         }
         return render(request, EDIT_POST_TEMPLATE, context)
 

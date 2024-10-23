@@ -4,12 +4,10 @@ from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.views import View
 
-from ..models import PostImage
+from demo_project import settings
 
 from ..forms.add_post_image_form import AddPostImageForm
-
-from posts_app import settings as app_settings
-
+from ..models import PostImage
 
 ADD_POST_IMAGE_TEMPLATE = "add_post_image.html"
 
@@ -26,7 +24,7 @@ class AddPostImageView(LoginRequiredMixin, View):
         form = AddPostImageForm(request.POST, request.FILES)
 
         form.is_valid()
-        if images_count >= app_settings.MAX_IMAGES_FOR_POST:
+        if images_count >= settings.MAX_IMAGES_FOR_POST:
             form.add_error(NON_FIELD_ERRORS, "Image limit for this post is reached.")
         if form.errors:
             context = {"add_image_form": form, "post_id": post_id}

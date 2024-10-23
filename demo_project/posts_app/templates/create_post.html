@@ -6,7 +6,8 @@
     <a href="{% url 'posts_app:all' %}">Back to all posts</a>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ create_post_form }}
+        {{ post_form }}
+        {{ image_formset }}
         <button type="submit">Add post</button>
     </form>    
 {% endblock %}

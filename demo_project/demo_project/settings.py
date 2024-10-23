@@ -135,3 +135,7 @@ MEDIA_URL = "/media/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'auth_app:unauthorized'
+
+
+# posts_app
+MAX_IMAGES_FOR_POST = 4
