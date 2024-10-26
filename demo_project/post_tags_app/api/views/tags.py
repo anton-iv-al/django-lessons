@@ -6,7 +6,7 @@ from ...models import PostTag
 from ..serializers.tags import PostTagSerializer
 
 
-class ApiTagsView(GenericViewSet, ListModelMixin):
+class TagsView(GenericViewSet, ListModelMixin):
     serializer_class = PostTagSerializer
     queryset = PostTag.objects.all()
     filter_backends = [OrderingFilter]

@@ -4,7 +4,7 @@ from rest_framework.mixins import ListModelMixin
 from rest_framework.viewsets import GenericViewSet
 
 
-class ApiPostsByTagView(GenericViewSet, ListModelMixin):
+class PostsByTagView(GenericViewSet, ListModelMixin):
     serializer_class = PostSerializer
     ordering_fields = ["created_at"]
     ordering = ["-created_at"]

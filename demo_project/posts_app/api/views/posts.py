@@ -6,7 +6,7 @@ from ...models import Post
 from ..serializers.posts import PostSerializer
 
 
-class ApiPostsView(GenericViewSet, ListModelMixin, CreateModelMixin):
+class PostsView(GenericViewSet, ListModelMixin, CreateModelMixin):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
     filter_backends = [OrderingFilter]
