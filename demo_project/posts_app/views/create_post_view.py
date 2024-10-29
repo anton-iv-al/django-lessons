@@ -31,7 +31,7 @@ class CreatePostView(LoginRequiredMixin, View):
 
         with transaction.atomic():
             post: Post = post_form.save(commit=False)
-            post.username = cast(User, request.user).username
+            post.user = cast(User, request.user)
             post.save()
 
             image_formset.instance = post

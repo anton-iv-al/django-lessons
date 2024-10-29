@@ -14,6 +14,9 @@ EDIT_POST_TEMPLATE = "edit_post.html"
 class EditPostView(LoginRequiredMixin, View):
     def get(self, request: HttpRequest, id: int):
         post = Post.objects.prefetch_related("images").get(id=id)
+        if post.user != request.user:
+            return redirect("posts_app:all")
+
         form = EditPostForm(instance=post)
         context = {
             "edit_post_form": form,
@@ -23,6 +26,9 @@ class EditPostView(LoginRequiredMixin, View):
 
     def post(self, request: HttpRequest, id: int):
         post = Post.objects.get(id=id)
+        if post.user != request.user:
+            raise Exception("Not allowed.")
+
         form = EditPostForm(request.POST, instance=post)
         if not form.is_valid():
             context = {"edit_post_form": form}
