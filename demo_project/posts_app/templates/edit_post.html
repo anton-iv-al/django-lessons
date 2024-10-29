@@ -12,7 +12,7 @@
         <p>Images {{ edit_post_form.instance.images.count }}/{{ max_images }}</p>
         <div>
             {% for image in edit_post_form.instance.images.all %}
-                <img src="{{ image.image_data.url }}" alt="image" width="200" height="200">
+                <img src="{{ image.image_data.file.url }}" alt="image" width="200" height="200">
                 <a href="{% url 'posts_app:image_delete' post_id=edit_post_form.instance.id image_id=image.id %}">Delete</a>               
             {% endfor %}
         </div>

@@ -18,7 +18,7 @@
             </p>
 
             {% for image in post.images.all %}
-                <img src="{{ image.image_data.url }}" alt="{{ post.title }}" width="200" height="200">
+                <img src="{{ image.image_data.file.url }}" alt="{{ post.title }}" width="200" height="200">
             {% endfor %}
             <p>{{ post.text }}</p>
             

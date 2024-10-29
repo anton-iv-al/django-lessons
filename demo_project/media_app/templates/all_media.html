@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block header %}Media{% endblock %}
+
+{% block content %}
+    <a href="{% url 'media_app:create' %}">Create media</a>
+    {% for media in media_items %}
+        <div>
+            <h2>{{ media.file.name }}</h2>
+            <p>ID: {{ media.id }}</p>
+            
+            <p>Type: {{ media.get_media_type_display }}</p>
+            {% if media.media_type == 1 %}
+                <p>Image: <img src="{{ media.file.url }}" alt="image" width="200" height="200"></p>
+            {% endif %}
+
+            <p>Created at: {{ media.created_at|date:"F j, Y" }}</p>
+            <p>User: {{ media.user.username }}</p>
+        </div>
+    {% empty %}
+        <p>No media available.</p>
+    {% endfor %}
+{% endblock %}

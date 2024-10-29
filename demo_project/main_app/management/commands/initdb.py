@@ -34,12 +34,18 @@ class Command(BaseCommand):
 
         posts_menu_item = MenuItem()
         posts_menu_item.title = "Posts"
-        posts_menu_item.url = "post/"
+        posts_menu_item.url = "/post/"
         posts_menu_item.menu = main_menu
         posts_menu_item.save()
 
         tags_menu_item = MenuItem()
         tags_menu_item.title = "Tags"
-        tags_menu_item.url = "tag/"
+        tags_menu_item.url = "/tag/"
         tags_menu_item.menu = main_menu
         tags_menu_item.save()
+
+        media_menu_item = MenuItem()
+        media_menu_item.title = "Media"
+        media_menu_item.url = "/media/"
+        media_menu_item.menu = main_menu
+        media_menu_item.save()

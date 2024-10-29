@@ -1,11 +1,12 @@
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from django.db import models
+from media_app.models import Media
 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
-    avatar = models.ImageField(null=True, blank=True)
+    avatar = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True)
     phone = models.CharField(
         validators=[RegexValidator(r"^\+?[1-9][0-9]{7,14}$")],
         max_length=17,

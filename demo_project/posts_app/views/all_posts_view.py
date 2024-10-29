@@ -3,7 +3,6 @@ from django.db.models import Prefetch
 from django.http import HttpRequest
 from django.shortcuts import render
 from django.views import View
-
 from post_tags_app.models import PostTag
 
 from ..models import Post, PostImage
@@ -16,7 +15,10 @@ class PostsView(LoginRequiredMixin, View):
         else:
             posts = Post.objects
 
-        prefetch_images = Prefetch("images", queryset=PostImage.objects.order_by("id"))
+        prefetch_images = Prefetch(
+            "images",
+            queryset=PostImage.objects.order_by("id").select_related("image_data"),
+        )
         prefetch_tags = Prefetch("tags", queryset=PostTag.objects.order_by("name"))
         posts = (
             posts.prefetch_related(prefetch_images, prefetch_tags)

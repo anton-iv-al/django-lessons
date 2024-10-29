@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'main_app',
+    'media_app',
     'menu_app',
     'posts_app',
     'post_tags_app',

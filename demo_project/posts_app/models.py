@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from media_app.models import Media
 
 
 class Post(models.Model):
@@ -12,4 +13,4 @@ class Post(models.Model):
 
 class PostImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="images")
-    image_data = models.ImageField()
+    image_data = models.ForeignKey(Media, on_delete=models.CASCADE)

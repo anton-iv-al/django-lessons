@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Prefetch
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.views import View
@@ -6,14 +7,17 @@ from django.views import View
 from demo_project import settings
 
 from ..forms.edit_post_form import EditPostForm
-from ..models import Post
+from ..models import Post, PostImage
 
 EDIT_POST_TEMPLATE = "edit_post.html"
 
 
 class EditPostView(LoginRequiredMixin, View):
     def get(self, request: HttpRequest, id: int):
-        post = Post.objects.prefetch_related("images").get(id=id)
+        prefetch_images = Prefetch(
+            "images", queryset=PostImage.objects.select_related("image_data")
+        )
+        post = Post.objects.prefetch_related(prefetch_images).get(id=id)
         if post.user != request.user:
             return redirect("posts_app:all")
 
