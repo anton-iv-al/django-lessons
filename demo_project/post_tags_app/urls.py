@@ -12,5 +12,5 @@ urlpatterns = [
     path("tag/<str:tag_name>/", TagPostsView.as_view(), name="tag"),
 
     path('api/tag', ApiTagsView.as_view({'get': 'list'}), name='api-tags'),
-    path('api/tag/<str:tag>', ApiPostsByTagView.as_view({'get': 'list'}), name='api-posts-by-tag'),
+    path('api/tag/<str:tag>/posts', ApiPostsByTagView.as_view({'get': 'list'}), name='api-posts-by-tag'),
 ]

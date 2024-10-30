@@ -1,5 +1,6 @@
 import magic
 from django.core.files.uploadedfile import UploadedFile
+from drf_spectacular.utils import extend_schema
 from rest_framework.exceptions import ValidationError
 from rest_framework.mixins import CreateModelMixin
 from rest_framework.viewsets import GenericViewSet
@@ -8,6 +9,7 @@ from media_app.api.serializers.media import MediaSerializer
 from media_app.models import Media, MediaType
 
 
+@extend_schema(tags=["media"])
 class MediaView(GenericViewSet, CreateModelMixin):
     serializer_class = MediaSerializer
     queryset = Media.objects.all()
