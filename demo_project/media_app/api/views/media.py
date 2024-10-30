@@ -1,6 +1,5 @@
 import magic
 from django.core.files.uploadedfile import UploadedFile
-from rest_framework import permissions
 from rest_framework.exceptions import ValidationError
 from rest_framework.mixins import CreateModelMixin
 from rest_framework.viewsets import GenericViewSet
@@ -12,7 +11,6 @@ from media_app.models import Media, MediaType
 class MediaView(GenericViewSet, CreateModelMixin):
     serializer_class = MediaSerializer
     queryset = Media.objects.all()
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
         file: UploadedFile | None = serializer.validated_data.get("file")
