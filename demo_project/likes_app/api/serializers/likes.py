@@ -1,30 +1,28 @@
+from auth_app.api.serializers.users import UserSerializer
 from rest_framework import serializers
 
-from ...models import Post
+from likes_app.models import Like
 
 
-class PostSerializer(serializers.ModelSerializer):
+class LikeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Post
+        model = Like
         fields = [
             "id",
             "user",
             "created_at",
-            "title",
-            "text",
-            "comments_anchor",
-            "likes_anchor",
-            "post_user",
+            "parent_likes_anchor",
+            "like_user",
         ]
         read_only_fields = [
             "id",
             "user",
             "created_at",
-            "comments_anchor",
-            "likes_anchor",
         ]
 
-    post_user = serializers.HiddenField(
+    like_user = serializers.HiddenField(
         default=serializers.CurrentUserDefault(),
         source="user",
     )
+
+    user = UserSerializer(read_only=True)

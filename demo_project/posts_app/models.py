@@ -1,6 +1,7 @@
 from comments_app.models import CommentsAnchor
 from django.contrib.auth.models import User
 from django.db import models
+from likes_app.models import LikesAnchor
 from media_app.models import Media
 
 
@@ -13,6 +14,10 @@ class Post(models.Model):
 
     comments_anchor = models.OneToOneField(
         CommentsAnchor, on_delete=models.PROTECT, related_name="post", null=True
+    )
+
+    likes_anchor = models.OneToOneField(
+        LikesAnchor, on_delete=models.PROTECT, related_name="post", null=True
     )
 
 

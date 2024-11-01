@@ -11,6 +11,7 @@ class CommentSerializer(serializers.ModelSerializer):
             "user",
             "created_at",
             "parent_comments_anchor",
+            "likes_anchor",
             "text",
             "hidden_user",
         ]
@@ -18,6 +19,7 @@ class CommentSerializer(serializers.ModelSerializer):
             "id",
             "user",
             "created_at",
+            "likes_anchor",
         ]
 
     hidden_user = serializers.HiddenField(

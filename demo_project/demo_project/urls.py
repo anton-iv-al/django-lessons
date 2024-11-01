@@ -34,6 +34,7 @@ urlpatterns = [
     path('', include(('post_tags_app.urls', 'posts_tags_app'), namespace='post_tags_app')),
     path('', include(('auth_app.urls', 'auth_app'), namespace='auth_app')),
     path('', include(('comments_app.urls', 'comments_app'), namespace='comments_app')),
+    path('', include(('likes_app.urls', 'likes_app'), namespace='likes_app')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

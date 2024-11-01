@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'post_tags_app',
     'auth_app',
     'comments_app',
+    'likes_app',
 ]
 
 MIDDLEWARE = [
