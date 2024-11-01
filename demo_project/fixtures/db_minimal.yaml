@@ -1,0 +1,81 @@
+- model: auth.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$870000$YpWPpaMRRHDBlNydIvqex3$5RmK8155kqP0nJPdAW/ZNParEQ+nb1VvKpz32AzyG1I=
+    last_login: null
+    is_superuser: true
+    username: admin
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: true
+    is_active: true
+    date_joined: 2024-11-01 20:17:11.814943+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 2
+  fields:
+    password: pbkdf2_sha256$870000$miYkqlaFQCb6dHzJqvTvkm$7Srb9i55cYdV0qB33awDAT98pMeo87PhFa51HI8oiy0=
+    last_login: null
+    is_superuser: false
+    username: user1
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2024-11-01 20:17:13.077268+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 3
+  fields:
+    password: pbkdf2_sha256$870000$HGZYzRkwHgvC4LUHZorOqP$R9Y+Z3MbO94k04HpgEixf49HqXDwbv1PFD2J1iUJq0k=
+    last_login: null
+    is_superuser: false
+    username: user2
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2024-11-01 20:17:14.404518+00:00
+    groups: []
+    user_permissions: []
+- model: menu_app.menu
+  pk: 1
+  fields:
+    menu_label: main_menu
+- model: menu_app.menuitem
+  pk: 1
+  fields:
+    menu: 1
+    title: Posts
+    url: /post/
+    icon: ''
+    priority: 0.0
+- model: menu_app.menuitem
+  pk: 2
+  fields:
+    menu: 1
+    title: Tags
+    url: /tag/
+    icon: ''
+    priority: 0.0
+- model: menu_app.menuitem
+  pk: 3
+  fields:
+    menu: 1
+    title: Media
+    url: /media/
+    icon: ''
+    priority: 0.0
+- model: menu_app.menuitem
+  pk: 4
+  fields:
+    menu: 1
+    title: Api Docs
+    url: /api/schema/swagger-ui/
+    icon: ''
+    priority: 0.0

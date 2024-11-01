@@ -1,0 +1,350 @@
+- model: auth.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$870000$YpWPpaMRRHDBlNydIvqex3$5RmK8155kqP0nJPdAW/ZNParEQ+nb1VvKpz32AzyG1I=
+    last_login: null
+    is_superuser: true
+    username: admin
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: true
+    is_active: true
+    date_joined: 2024-11-01 20:17:11.814943+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 2
+  fields:
+    password: pbkdf2_sha256$870000$miYkqlaFQCb6dHzJqvTvkm$7Srb9i55cYdV0qB33awDAT98pMeo87PhFa51HI8oiy0=
+    last_login: 2024-11-01 20:29:31.418655+00:00
+    is_superuser: false
+    username: user1
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2024-11-01 20:17:13.077268+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 3
+  fields:
+    password: pbkdf2_sha256$870000$HGZYzRkwHgvC4LUHZorOqP$R9Y+Z3MbO94k04HpgEixf49HqXDwbv1PFD2J1iUJq0k=
+    last_login: 2024-11-01 20:35:39.068857+00:00
+    is_superuser: false
+    username: user2
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2024-11-01 20:17:14.404518+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 4
+  fields:
+    password: pbkdf2_sha256$870000$drCnEjMWHUbCt4VPsrmjyq$sbJEDN8PCeo5ojSlARa7e7lcy60Q553T3Qyn/j9W20Q=
+    last_login: 2024-11-01 20:41:26.837294+00:00
+    is_superuser: false
+    username: user3
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2024-11-01 20:22:42.432058+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 5
+  fields:
+    password: pbkdf2_sha256$870000$QzRmQgUHDgZye7rM5CmC4i$yyAAKyMOUWbGxygPns9Btb5lf/PSNNqo7F6CtnHpQ68=
+    last_login: 2024-11-01 20:23:58.001098+00:00
+    is_superuser: false
+    username: user4
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2024-11-01 20:23:56.779829+00:00
+    groups: []
+    user_permissions: []
+- model: auth.user
+  pk: 6
+  fields:
+    password: pbkdf2_sha256$870000$aONQSf8vs8GMTP3P0BApj6$eC33+CVa5Yg6Hi3eQsmR8eM2KpNv4hGvs+ZruOs5H10=
+    last_login: 2024-11-01 20:26:59.194324+00:00
+    is_superuser: false
+    username: user5
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2024-11-01 20:26:57.813265+00:00
+    groups: []
+    user_permissions: []
+- model: menu_app.menu
+  pk: 1
+  fields:
+    menu_label: main_menu
+- model: menu_app.menuitem
+  pk: 1
+  fields:
+    menu: 1
+    title: Posts
+    url: /post/
+    icon: ''
+    priority: 0.0
+- model: menu_app.menuitem
+  pk: 2
+  fields:
+    menu: 1
+    title: Tags
+    url: /tag/
+    icon: ''
+    priority: 0.0
+- model: menu_app.menuitem
+  pk: 3
+  fields:
+    menu: 1
+    title: Media
+    url: /media/
+    icon: ''
+    priority: 0.0
+- model: menu_app.menuitem
+  pk: 4
+  fields:
+    menu: 1
+    title: Api Docs
+    url: /api/schema/swagger-ui/
+    icon: ''
+    priority: 0.0
+- model: posts_app.post
+  pk: 1
+  fields:
+    created_at: 2024-11-01 20:30:32.606234+00:00
+    title: Post1
+    text: '#tag1 #tag2'
+    user: 2
+    comments_anchor: 1
+    likes_anchor: 1
+- model: posts_app.post
+  pk: 2
+  fields:
+    created_at: 2024-11-01 20:30:54.290661+00:00
+    title: Post2
+    text: '#tag2 #tag3'
+    user: 2
+    comments_anchor: 2
+    likes_anchor: 2
+- model: posts_app.post
+  pk: 3
+  fields:
+    created_at: 2024-11-01 20:37:51.243872+00:00
+    title: Post3
+    text: '#tag3'
+    user: 3
+    comments_anchor: 3
+    likes_anchor: 5
+- model: post_tags_app.posttag
+  pk: 1
+  fields:
+    name: tag1
+    count: 1
+    posts:
+    - 1
+- model: post_tags_app.posttag
+  pk: 2
+  fields:
+    name: tag2
+    count: 2
+    posts:
+    - 1
+    - 2
+- model: post_tags_app.posttag
+  pk: 3
+  fields:
+    name: tag3
+    count: 2
+    posts:
+    - 2
+    - 3
+- model: auth_app.profile
+  pk: 1
+  fields:
+    user: 1
+    avatar: null
+    phone: null
+    about: null
+    github_link: null
+- model: auth_app.profile
+  pk: 2
+  fields:
+    user: 2
+    avatar: null
+    phone: null
+    about: null
+    github_link: null
+- model: auth_app.profile
+  pk: 3
+  fields:
+    user: 3
+    avatar: null
+    phone: null
+    about: null
+    github_link: null
+- model: auth_app.profile
+  pk: 4
+  fields:
+    user: 4
+    avatar: null
+    phone: null
+    about: null
+    github_link: null
+- model: auth_app.profile
+  pk: 5
+  fields:
+    user: 5
+    avatar: null
+    phone: null
+    about: null
+    github_link: null
+- model: auth_app.profile
+  pk: 6
+  fields:
+    user: 6
+    avatar: null
+    phone: null
+    about: null
+    github_link: null
+- model: comments_app.commentsanchor
+  pk: 1
+  fields:
+    anchor_type: 1
+- model: comments_app.commentsanchor
+  pk: 2
+  fields:
+    anchor_type: 1
+- model: comments_app.commentsanchor
+  pk: 3
+  fields:
+    anchor_type: 1
+- model: comments_app.comment
+  pk: 1
+  fields:
+    user: 2
+    created_at: 2024-11-01 20:32:01.896332+00:00
+    parent_comments_anchor: 1
+    text: comment1
+    likes_anchor: 3
+- model: comments_app.comment
+  pk: 2
+  fields:
+    user: 2
+    created_at: 2024-11-01 20:32:07.720904+00:00
+    parent_comments_anchor: 1
+    text: comment2
+    likes_anchor: 4
+- model: comments_app.comment
+  pk: 3
+  fields:
+    user: 3
+    created_at: 2024-11-01 20:39:41.835469+00:00
+    parent_comments_anchor: 2
+    text: Comment3
+    likes_anchor: 6
+- model: comments_app.comment
+  pk: 4
+  fields:
+    user: 3
+    created_at: 2024-11-01 20:39:50.692344+00:00
+    parent_comments_anchor: 3
+    text: Comment4
+    likes_anchor: 7
+- model: comments_app.comment
+  pk: 5
+  fields:
+    user: 4
+    created_at: 2024-11-01 20:42:47.863097+00:00
+    parent_comments_anchor: 1
+    text: some commentt
+    likes_anchor: 8
+- model: likes_app.likesanchor
+  pk: 1
+  fields:
+    anchor_type: 1
+- model: likes_app.likesanchor
+  pk: 2
+  fields:
+    anchor_type: 1
+- model: likes_app.likesanchor
+  pk: 3
+  fields:
+    anchor_type: 2
+- model: likes_app.likesanchor
+  pk: 4
+  fields:
+    anchor_type: 2
+- model: likes_app.likesanchor
+  pk: 5
+  fields:
+    anchor_type: 1
+- model: likes_app.likesanchor
+  pk: 6
+  fields:
+    anchor_type: 2
+- model: likes_app.likesanchor
+  pk: 7
+  fields:
+    anchor_type: 2
+- model: likes_app.likesanchor
+  pk: 8
+  fields:
+    anchor_type: 2
+- model: likes_app.like
+  pk: 1
+  fields:
+    user: 2
+    created_at: 2024-11-01 20:32:46.275127+00:00
+    parent_likes_anchor: 1
+- model: likes_app.like
+  pk: 2
+  fields:
+    user: 2
+    created_at: 2024-11-01 20:32:51.647189+00:00
+    parent_likes_anchor: 2
+- model: likes_app.like
+  pk: 3
+  fields:
+    user: 2
+    created_at: 2024-11-01 20:32:58.453059+00:00
+    parent_likes_anchor: 3
+- model: likes_app.like
+  pk: 4
+  fields:
+    user: 2
+    created_at: 2024-11-01 20:33:01.240009+00:00
+    parent_likes_anchor: 4
+- model: likes_app.like
+  pk: 5
+  fields:
+    user: 3
+    created_at: 2024-11-01 20:40:12.790603+00:00
+    parent_likes_anchor: 7
+- model: likes_app.like
+  pk: 6
+  fields:
+    user: 3
+    created_at: 2024-11-01 20:41:08.063984+00:00
+    parent_likes_anchor: 1
+- model: likes_app.like
+  pk: 7
+  fields:
+    user: 4
+    created_at: 2024-11-01 20:41:40.454914+00:00
+    parent_likes_anchor: 1

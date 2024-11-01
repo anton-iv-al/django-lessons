@@ -1,5 +1,6 @@
 import re
 
+from common.decorators.disable_signal_for_loaddata import disable_signal_for_loaddata
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from posts_app.models import Post
@@ -10,6 +11,7 @@ hashtags_pattern = re.compile(r"(?<=#)\w+")
 
 
 @receiver(post_save, sender=Post)
+@disable_signal_for_loaddata
 def add_post_tags(sender, instance: Post, created, *args, **kwargs):
     hashtags = set(hashtags_pattern.findall(instance.text))
 
