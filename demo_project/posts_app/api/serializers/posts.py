@@ -15,6 +15,7 @@ class PostSerializer(serializers.ModelSerializer):
             "comments_anchor",
             "likes_anchor",
             "post_user",
+            "images",
         ]
         read_only_fields = [
             "id",
