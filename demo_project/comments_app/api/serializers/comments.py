@@ -1,28 +1,26 @@
 from rest_framework import serializers
 
-from ...models import Post
+from comments_app.models import Comment
 
 
-class PostSerializer(serializers.ModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Post
+        model = Comment
         fields = [
             "id",
             "user",
             "created_at",
-            "title",
+            "parent_comments_anchor",
             "text",
-            "comments_anchor",
-            "post_user",
+            "hidden_user",
         ]
         read_only_fields = [
             "id",
             "user",
             "created_at",
-            "comments_anchor",
         ]
 
-    post_user = serializers.HiddenField(
+    hidden_user = serializers.HiddenField(
         default=serializers.CurrentUserDefault(),
         source="user",
     )

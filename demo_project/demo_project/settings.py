@@ -41,12 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
+    'django_filters',
     'main_app',
     'media_app',
     'menu_app',
     'posts_app',
     'post_tags_app',
     'auth_app',
+    'comments_app',
 ]
 
 MIDDLEWARE = [
@@ -169,7 +171,7 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
-    'PAGE_SIZE': 2,
+    'PAGE_SIZE': 10,
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
